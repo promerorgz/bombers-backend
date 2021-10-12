@@ -135,13 +135,14 @@
       "image": null
     }
   ],
+  "games": [{}],
   "global": {
-    "siteName":"Strapi Blog",
-    "defaultSeo":{
-      "metaTitle":"Page",
-      "metaDescription":"A blog made with Strapi",
-      "shareImage":null
+    "siteName": "Strapi Blog",
+    "defaultSeo": {
+      "metaTitle": "Page",
+      "metaDescription": "A blog made with Strapi",
+      "shareImage": null
     },
-    "favicon":null
+    "favicon": null
   }
 }
