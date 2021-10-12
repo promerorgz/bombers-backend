@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "players",
+  "info": {
+    "name": "players",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "text"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "hometown": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "picture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "date_of_birth": {
+      "type": "date"
+    },
+    "division": {
+      "type": "enumeration",
+      "enum": [
+        "D1",
+        "D3"
+      ]
+    },
+    "position": {
+      "type": "integer",
+      "default": 1,
+      "max": 15,
+      "min": 1
+    },
+    "hoverPic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

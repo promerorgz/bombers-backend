@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "name": "games",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "home_score": {
+      "type": "string"
+    },
+    "preview": {
+      "type": "text"
+    },
+    "finished": {
+      "type": "boolean",
+      "default": false
+    },
+    "away_score": {
+      "type": "string"
+    },
+    "division": {
+      "type": "enumeration",
+      "enum": [
+        "d1",
+        "d3"
+      ]
+    },
+    "updates": {
+      "type": "richtext"
+    },
+    "home": {
+      "collection": "teams",
+      "model": "teams"
+    },
+    "away": {
+      "collection": "teams",
+      "model": "teams"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "winner": {
+      "model": "teams"
+    },
+    "location": {
+      "type": "string"
+    },
+    "report": {
+      "type": "text"
+    },
+    "friendly": {
+      "type": "boolean"
+    }
+  }
+}
