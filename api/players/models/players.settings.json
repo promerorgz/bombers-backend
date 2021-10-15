@@ -73,6 +73,10 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "first_name"
     }
   }
 }
