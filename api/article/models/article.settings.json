@@ -65,6 +65,9 @@
     "slug": {
       "type": "string",
       "unique": true
+    },
+    "tagline": {
+      "type": "string"
     }
   }
 }
