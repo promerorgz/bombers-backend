@@ -8,7 +8,8 @@ const {
   homepage,
   writers,
   articles,
-  global
+  games,
+  global,
 } = require("../../data/data.json");
 
 async function isFirstRun() {
@@ -20,7 +21,7 @@ async function isFirstRun() {
   const initHasRun = await pluginStore.get({ key: "initHasRun" });
   await pluginStore.set({ key: "initHasRun", value: true });
   return !initHasRun;
-};
+}
 
 async function setPublicPermissions(newPermissions) {
   // Find the ID of the public role
@@ -53,7 +54,7 @@ async function setPublicPermissions(newPermissions) {
       // Enable the selected permissions
       return strapi
         .query("permission", "users-permissions")
-        .update({ id: permission.id }, { enabled: true })
+        .update({ id: permission.id }, { enabled: true });
     });
   await Promise.all(updatePromises);
 }
@@ -62,7 +63,7 @@ function getFileSizeInBytes(filePath) {
   const stats = fs.statSync(filePath);
   const fileSizeInBytes = stats["size"];
   return fileSizeInBytes;
-};
+}
 
 function getFileData(fileName) {
   const filePath = `./data/uploads/${fileName}`;
@@ -77,7 +78,7 @@ function getFileData(fileName) {
     name: fileName,
     size,
     type: mimeType,
-  }
+  };
 }
 
 // Create an entry and attach files if there are any
@@ -90,14 +91,16 @@ async function createEntry({ model, entry, files }) {
       });
     }
   } catch (e) {
-    console.log('model', entry, e);
+    console.log("model", entry, e);
   }
 }
 
 async function importCategories() {
-  return Promise.all(categories.map((category) => {
-    return createEntry({ model: "category", entry: category });
-  }));
+  return Promise.all(
+    categories.map((category) => {
+      return createEntry({ model: "category", entry: category });
+    })
+  );
 }
 
 async function importHomepage() {
@@ -108,30 +111,45 @@ async function importHomepage() {
 }
 
 async function importWriters() {
-  return Promise.all(writers.map(async (writer) => {
-    const files = {
-      picture: getFileData(`${writer.email}.jpg`),
-    };
-    return createEntry({
-      model: "writer",
-      entry: writer,
-      files,
-    });
-  }));
+  return Promise.all(
+    writers.map(async (writer) => {
+      const files = {
+        picture: getFileData(`${writer.email}.jpg`),
+      };
+      return createEntry({
+        model: "writer",
+        entry: writer,
+        files,
+      });
+    })
+  );
 }
 
 async function importArticles() {
-  return Promise.all(articles.map((article) => {
-    const files = {
-      image: getFileData(`${article.slug}.jpg`),
-    };
-    return createEntry({ model: "article", entry: article, files });
-  }));
+  return Promise.all(
+    articles.map((article) => {
+      const files = {
+        image: getFileData(`${article.slug}.jpg`),
+      };
+      return createEntry({ model: "article", entry: article, files });
+    })
+  );
+}
+
+async function importGames() {
+  return Promise.all(
+    games.map((game) => {
+      const files = {
+        image: getFileData(`${game.slug}.jpg`),
+      };
+      return createEntry({ model: "game", entry: game, files });
+    })
+  );
 }
 
 async function importGlobal() {
   const files = {
-    "favicon": getFileData("favicon.png"),
+    favicon: getFileData("favicon.png"),
     "defaultSeo.shareImage": getFileData("default-image.png"),
   };
   return createEntry({ model: "global", entry: global, files });
@@ -140,11 +158,12 @@ async function importGlobal() {
 async function importSeedData() {
   // Allow read of application content types
   await setPublicPermissions({
-    global: ['find'],
-    homepage: ['find'],
-    article: ['find', 'findone'],
-    category: ['find', 'findone'],
-    writer: ['find', 'findone'],
+    global: ["find"],
+    homepage: ["find"],
+    article: ["find", "findone"],
+    category: ["find", "findone"],
+    writer: ["find", "findone"],
+    games: ["find", "findone"],
   });
 
   // Create all entries
@@ -152,6 +171,7 @@ async function importSeedData() {
   await importHomepage();
   await importWriters();
   await importArticles();
+  await importGames();
   await importGlobal();
 }
 
@@ -160,11 +180,11 @@ module.exports = async () => {
 
   if (shouldImportSeedData) {
     try {
-      console.log('Setting up the template...');
+      console.log("Setting up the template...");
       await importSeedData();
-      console.log('Ready to go');
+      console.log("Ready to go");
     } catch (error) {
-      console.log('Could not import seed data');
+      console.log("Could not import seed data");
       console.error(error);
     }
   }
