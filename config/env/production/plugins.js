@@ -1,20 +1,20 @@
 module.exports = ({ env }) => {
   return {
-    // email: {
-    //   provider: "nodemailer",
-    //   providerOptions: {
-    //     service: "gmail",
-    //     port: 587,
-    //     auth: {
-    //       user: "contact.monumentacademydc@gmail.com",
-    //       pass: "monument_contact",
-    //     },
-    //   },
-    //   settings: {
-    //     defaultFrom: "contact.monumentacademydc@gmail.com",
-    //     defaultReplyTo: "info@monumentacademydc.org",
-    //   },
-    // },
+    email: {
+      provider: "nodemailer",
+      providerOptions: {
+        service: "gmail",
+        port: 587,
+        auth: {
+          user: process.env.MAIL_ADDRESS,
+          pass: process.env.MAIL_PASS,
+        },
+      },
+      settings: {
+        defaultFrom: "stlbombersrfc@gmail.com",
+        defaultReplyTo: "stlbombersrfc@gmail.org",
+      },
+    },
     upload: {
       provider: "aws-s3",
       providerOptions: {
