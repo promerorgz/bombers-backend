@@ -68,6 +68,10 @@
     },
     "tagline": {
       "type": "string"
+    },
+    "uid": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
