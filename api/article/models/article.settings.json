@@ -72,6 +72,9 @@
     "uid": {
       "type": "uid",
       "targetField": "title"
+    },
+    "highlight": {
+      "type": "boolean"
     }
   }
 }
