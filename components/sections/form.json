@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_forms",
+  "info": {
+    "name": "form",
+    "icon": "tasks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "field": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.field"
+    },
+    "title": {
+      "type": "string"
+    },
+    "redirect": {
+      "type": "boolean"
+    },
+    "redirectLink": {
+      "type": "string"
+    },
+    "errorMessage": {
+      "type": "string"
+    },
+    "successMessage": {
+      "type": "string"
+    }
+  }
+}

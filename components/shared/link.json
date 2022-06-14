@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "name": "link",
+    "icon": "arrow-alt-circle-right"
+  },
+  "options": {},
+  "attributes": {
+    "display": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "card": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_fields",
+  "info": {
+    "name": "field",
+    "icon": "stream",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "initialValue": {
+      "type": "string"
+    }
+  }
+}
