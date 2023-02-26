@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/history",
+      "handler": "history.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/history",
+      "handler": "history.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/history",
+      "handler": "history.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
