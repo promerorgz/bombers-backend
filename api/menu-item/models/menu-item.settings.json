@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_items",
+  "info": {
+    "name": "menuItem",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "itemId": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "parent": {
+      "type": "enumeration",
+      "enum": [
+        "self",
+        "club",
+        "team",
+        "more"
+      ]
+    }
+  }
+}

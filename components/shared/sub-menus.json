@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_sub_menus",
+  "info": {
+    "name": "subMenus",
+    "icon": "angle-right"
+  },
+  "options": {},
+  "attributes": {
+    "itemId": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}
