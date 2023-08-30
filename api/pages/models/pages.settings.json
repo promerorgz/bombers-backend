@@ -34,6 +34,17 @@
     },
     "published": {
       "type": "datetime"
+    },
+    "parent": {
+      "type": "enumeration",
+      "enum": [
+        "self",
+        "more",
+        "club",
+        "team"
+      ],
+      "default": "self",
+      "required": true
     }
   }
 }
